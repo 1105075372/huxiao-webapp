@@ -1,0 +1,27 @@
+﻿ORM -> Object Relation Mapping (MyBatis/Hibernate)
+
+持久层框架 -> Persistent Layer Framework
+
+iBatis 
+
+MyBatis -> http://mybatis.github.io/mybatis-3/
+MyBatis-Spring -> http://mybatis.github.io/spring/
+
+show create table huxiao_user;
+
+
+
+
+List<HuXiaoUser> userList = new ArrayList<HuXiaoUser>();
+
+HuXiaoUser user = new HuXiaoUser();
+user.setUsername('');
+...
+
+userList.add(user);
+user1.set
+
+
+sql -> java
+
+java -> sql -> java
