@@ -22,13 +22,30 @@ import org.springframework.stereotype.Repository;
 
 import cn.cuizuoli.huxiao.model.HuxiaoUser;
 
-/**
- * HuXiaoUserRepository
- * @author cuizuoli
- */
 @Repository
-public interface HuXiaoUserRepository {
+public interface HuxiaoUserRepository {
+	/**
+	 * selectList
+	 * @return
+	 */
 	List<HuxiaoUser> selectList();
 
-	HuxiaoUser selectOne(@Param("user1") String username);
+	/**
+	 * selectOne
+	 * @param username
+	 * @return
+	 */
+	HuxiaoUser selectOne(@Param("username") String username);
+
+	/**
+	 * insert
+	 * @param huxiaoUser
+	 */
+	void insert(HuxiaoUser huxiaoUser);
+
+	/**
+	 * update
+	 * @param huxiaoUser
+	 */
+	void update(HuxiaoUser huxiaoUser);
 }

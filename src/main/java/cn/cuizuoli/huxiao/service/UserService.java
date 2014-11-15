@@ -15,37 +15,54 @@
  */
 package cn.cuizuoli.huxiao.service;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import cn.cuizuoli.huxiao.model.HuxiaoUser;
-import cn.cuizuoli.huxiao.repository.HuXiaoUserRepository;
+import cn.cuizuoli.huxiao.repository.HuxiaoUserRepository;
 
 /**
- * HuXiaoUserService
+ * UserService
  * @author cuizuoli
  */
 @Service
-public class HuXiaoUserService {
+public class UserService {
 
 	@Resource
-	private HuXiaoUserRepository huXiaoUserRepository;
+	private HuxiaoUserRepository huxiaoUserRepository;
 
-	public List<HuxiaoUser> getHuXiaoUser() {
-		HuxiaoUser zhangsanUser = huXiaoUserRepository.selectOne("zhangsan");
-		System.out.println(zhangsanUser.getNickname());
+	/**
+	 * addUser
+	 * @param huxiaoUser
+	 */
+	public void addUser(HuxiaoUser huxiaoUser) {
+		HuxiaoUser user = huxiaoUserRepository.selectOne(huxiaoUser.getUsername());
+		if (user == null) {
+			huxiaoUserRepository.insert(huxiaoUser);
+		}
+	}
 
-		List<HuxiaoUser> userList = huXiaoUserRepository.selectList();
-		for (int i = 0; i < userList.size(); i++) {
-			System.out.println(userList.get(i).getNickname());
+	/**
+	 * checkUserExists
+	 * @param huxiaoUser
+	 * @return
+	 */
+	public boolean checkUserExists(HuxiaoUser huxiaoUser) {
+		HuxiaoUser user = huxiaoUserRepository.selectOne(huxiaoUser.getUsername());
+		if (user != null) {
+			return true;
+		} else {
+			return false;
 		}
-		for (HuxiaoUser user : userList) {
-			System.out.println(user.getNickname());
-		}
-		return userList;
+	}
+
+	/**
+	 * modifyUser
+	 * @param huxiaoUser
+	 */
+	public void modifyUser(HuxiaoUser huxiaoUser) {
+		huxiaoUserRepository.update(huxiaoUser);
 	}
 
 }

@@ -4,7 +4,7 @@
 	<select id="selectList" resultType="HuxiaoUser">
 		SELECT
 			username,
-			passwd,
+			password,
 			nickname,
 			gender,
 			age,
@@ -17,7 +17,7 @@
 	<select id="selectOne" parameterType="string" resultType="HuxiaoUser">
 		SELECT
 			username,
-			passwd,
+			password,
 			nickname,
 			gender,
 			age,
@@ -26,6 +26,39 @@
 			create_time AS createTime,
 			modify_time AS modifyTime
 		FROM huxiao_user
-		WHERE username = #{user1}
+		WHERE username = #{username}
 	</select>
+	<insert id="insert" parameterType="HuxiaoUser">
+		INSERT INTO huxiao_user (
+			username,
+			password,
+			nickname,
+			gender,
+			age,
+			creator,
+			modifier,
+			create_time,
+			modify_time
+		) VALUES (
+			#{username},
+			#{password},
+			#{nickname},
+			#{gender},
+			#{age},
+			#{creator},
+			#{modifier},
+			NOW(),
+			NOW()
+		)
+	</insert>
+	<update id="update" parameterType="HuxiaoUser">
+		UPDATE huxiao_user
+		SET	password = #{password},
+			nickname = #{nickname},
+			gender = #{gender},
+			age = #{age},
+			modifier = #{modifier},
+			modify_time = NOW()
+		WHERE username = #{username}
+	</update>
 </mapper>

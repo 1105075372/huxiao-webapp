@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="huxiao">
+    <wb-module deploy-name="huxiao-webapp">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/webapp"/>
-        <property name="java-output-path" value="/huxiao/target/classes"/>
+        <property name="java-output-path" value="/huxiao-webapp/target/classes"/>
         <property name="context-root" value="/"/>
     </wb-module>
 </project-modules>
